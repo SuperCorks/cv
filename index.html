@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Simon Corcos — CV</title>
+
+  
+  <!-- Tailwind (no-build) via CDN; preflight disabled to preserve existing styles -->
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      theme: { extend: {} }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     :root {
-      --text: #111827;      /* slate-900 */
-      --muted: #4b5563;     /* gray-600 */
-      --accent: #0ea5e9;    /* sky-500 */
-      --rule: #e5e7eb;      /* gray-200 */
+      --text: #111827;
+      /* slate-900 */
+      --muted: #4b5563;
+      /* gray-600 */
+      --accent: #0ea5e9;
+      /* sky-500 */
+      --rule: #e5e7eb;
+      /* gray-200 */
     }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-                   Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji",
-                   "Segoe UI Emoji";
+        Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji",
+        "Segoe UI Emoji";
       color: var(--text);
       line-height: 1.55;
       background: #fff;
@@ -25,47 +50,201 @@
       text-rendering: optimizeLegibility;
       hyphens: auto;
     }
+
     .page {
       max-width: 900px;
       margin: 28px auto;
       padding: 36px 32px;
       border: 1px solid var(--rule);
       border-radius: 10px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     }
-    h1 { font-size: 30px; margin: 0 0 4px; letter-spacing: 0.2px; }
-    .tagline { font-size: 16px; color: var(--muted); margin: 2px 0 12px; }
-    /* Tailwind handles header/meta layout; keep only minimal overrides */
-    .meta { text-align: right; }
-    .meta a.item { color: var(--text); text-decoration: none; }
-    .meta a.item:hover { color: var(--accent); text-decoration: underline; }
-    .icon {
-      width: 14px; height: 14px; color: #6b7280; flex: 0 0 auto;
-      stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+
+    .cv h1 {
+      font-size: 40px;
+      margin: 0 0 4px;
+      letter-spacing: 0.2px;
+      font-weight: 700;
     }
-    /* trailing icons on the right list */
-    .item .icon { margin-left: 8px; }
-    hr { border: 0; border-top: 1px solid var(--rule); margin: 18px 0; }
-    h2 { font-size: 18px; margin: 20px 0 8px; letter-spacing: 0.3px; text-transform: none; }
-    h3 { font-size: 15px; margin: 10px 0 2px; }
-    .sub { color: var(--muted); font-size: 13px; }
-    .section { margin-top: 12px; }
-    p { margin: 8px 0; }
-    ul { margin: 6px 0 12px 18px; padding: 0; }
-    li { margin: 6px 0; }
-  .competencies { margin-left: 18px; }
-  .competencies li { margin: 10px 0; }
-  .competencies strong { font-weight: 700; }
-    .pill {
-      display: inline-block; border: 1px solid var(--rule); padding: 6px 10px;
-      border-radius: 999px; margin: 6px 8px 0 0; font-size: 13px; color: var(--muted);
+
+    .tagline {
+      font-size: 16px;
+      color: var(--muted);
+      margin: 2px 0 12px;
     }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
+
+    /* Header layout (stable, print-safe) */
+    header {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 4px;
+    }
+
     @media (min-width: 720px) {
-      .grid.two { grid-template-columns: 1fr 1fr; }
-      .grid.three { grid-template-columns: 1fr 1fr 1fr; }
+      header {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+          "name contacts"
+          "tagline contacts";
+        column-gap: 24px;
+        row-gap: 6px;
+        align-items: start;
+      }
+
+      header h1 {
+        grid-area: name;
+      }
+
+      header .tagline {
+        grid-area: tagline;
+      }
+
+      header .meta {
+        grid-area: contacts;
+      }
     }
-    .footer { color: var(--muted); font-size: 12px; margin-top: 14px; }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-auto-rows: min-content;
+      gap: 6px;
+      margin: 0;
+      align-items: center;
+      text-align: right;
+    }
+
+    @media (min-width: 720px) {
+      .meta {
+        justify-self: end;
+      }
+    }
+
+    .meta .item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--muted);
+      white-space: nowrap;
+      width: 100%;
+    }
+
+    .meta a.item {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .meta a.item:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .icon {
+      width: 14px;
+      height: 14px;
+      color: #6b7280;
+      flex: 0 0 auto;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* trailing icons on the right list */
+    .item .icon {
+      margin-left: 8px;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid var(--rule);
+      margin: 18px 0;
+    }
+
+    .cv h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 8px;
+      letter-spacing: 0.3px;
+      color: var(--text);
+    }
+
+    .cv h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 10px 0 2px;
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .section {
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid var(--rule);
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    ul {
+      margin: 6px 0 12px 18px;
+      padding: 0;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    .competencies {
+      margin-left: 18px;
+    }
+
+    .competencies li {
+      margin: 10px 0;
+    }
+
+    .competencies strong {
+      font-weight: 700;
+    }
+
+    .pill {
+      display: inline-block;
+      border: 1px solid var(--rule);
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin: 6px 8px 0 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    @media (min-width: 720px) {
+      .grid.two {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .grid.three {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .footer {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 14px;
+    }
 
     /* Print/PDF optimization */
     @media print {
@@ -75,9 +254,21 @@
         --muted: #374151;
         --rule: #d1d5db;
       }
-      @page { margin: 12mm 14mm; }
-      html, body { background: #fff; }
-      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+      @page {
+        margin: 12mm 14mm;
+      }
+
+      html,
+      body {
+        background: #fff;
+      }
+
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
       .page {
         max-width: none;
         margin: 0;
@@ -86,29 +277,54 @@
         border-radius: 0;
         box-shadow: none;
       }
-  a, a:visited { color: inherit; text-decoration: none; border: 0; }
-  .icon { color: #000; }
-      header, section, ul, li { break-inside: avoid; page-break-inside: avoid; }
-      h2, h3 { break-after: avoid; page-break-after: avoid; }
-      hr { margin: 12px 0; border-top-color: var(--rule); }
-      .pill { border-color: #9ca3af; color: var(--muted); padding: 4px 8px; }
-      .footer { margin-top: 8px; }
+
+      a,
+      a:visited {
+        color: inherit;
+        text-decoration: none;
+        border: 0;
+      }
+
+      .icon {
+        color: #000;
+      }
+
+      header,
+      section,
+      ul,
+      li {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      h2,
+      h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      hr {
+        margin: 12px 0;
+        border-top-color: var(--rule);
+      }
+
+      .pill {
+        border-color: #9ca3af;
+        color: var(--muted);
+        padding: 4px 8px;
+      }
+
+      .footer {
+        margin-top: 8px;
+      }
     }
   </style>
-  <!-- Tailwind (no-build) via CDN; preflight disabled to preserve existing styles -->
-  <script>
-    tailwind = {
-      config: {
-        corePlugins: { preflight: false },
-        theme: { extend: {} }
-      }
-    };
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+
+<body class="cv">
   <!-- SVG symbol sprite for header icons (print-safe, no network calls) -->
-  <svg aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute; width:0; height:0; overflow:hidden">
+  <svg aria-hidden="true" focusable="false" width="0" height="0"
+    style="position:absolute; width:0; height:0; overflow:hidden">
     <symbol id="i-pin" viewBox="0 0 24 24">
       <path d="M12 22s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"></path>
       <circle cx="12" cy="11" r="3"></circle>
@@ -118,42 +334,57 @@
       <path d="m4 7 8 6 8-6"></path>
     </symbol>
     <symbol id="i-phone" viewBox="0 0 24 24">
-      <path d="M22 16.92v2a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.4 19.4 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.12 1h2a2 2 0 0 1 2 1.72c.13.98.36 1.94.67 2.86a2 2 0 0 1-.45 2.11L7 8a16 16 0 0 0 9 9l.31-.34a2 2 0 0 1 2.11-.45c.92.31 1.88.54 2.86.67A2 2 0 0 1 22 16.92Z"></path>
+      <path
+        d="M22 16.92v2a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.4 19.4 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.12 1h2a2 2 0 0 1 2 1.72c.13.98.36 1.94.67 2.86a2 2 0 0 1-.45 2.11L7 8a16 16 0 0 0 9 9l.31-.34a2 2 0 0 1 2.11-.45c.92.31 1.88.54 2.86.67A2 2 0 0 1 22 16.92Z">
+      </path>
     </symbol>
     <symbol id="i-link" viewBox="0 0 24 24">
       <path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11 5"></path>
       <path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07L13 19"></path>
     </symbol>
   </svg>
-  <main class="page max-w-[900px] mx-auto my-7 p-9 border rounded-xl shadow-sm">
-    <header class="grid gap-1 md:grid-cols-[1fr_auto] md:gap-x-6 items-start">
-      <h1 class="text-3xl font-bold tracking-wide">Simon Corcos</h1>
-      <p class="tagline text-base text-gray-600">CTO &amp; Senior Software Engineer <br> &mdash; Architecting Apps, Data &amp; AI in Healthcare and Ecommerce</p>
-      <div class="meta md:row-span-2 md:col-start-2 justify-self-end flex flex-col items-end text-right gap-1">
-        <a class="item flex items-center justify-end gap-2 whitespace-nowrap w-full text-sm text-gray-600 hover:text-sky-500 hover:underline" href="mailto:simon@corcos.ca" aria-label="Email">
+  <main class="page">
+    <header>
+      <h1>Simon Corcos</h1>
+      <p class="tagline">CTO &amp; Senior Software Engineer <br> &mdash; Architecting Apps, Data &amp; AI in Healthcare
+        and Ecommerce</p>
+      <div class="meta">
+        <a class="item" href="mailto:simon@corcos.ca" aria-label="Email">
           <span>simon@corcos.ca</span>
-          <svg class="icon w-3.5 h-3.5 text-gray-500" aria-hidden="true"><use href="#i-mail"></use></svg>
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-mail"></use>
+          </svg>
         </a>
-        <a class="item flex items-center justify-end gap-2 whitespace-nowrap w-full text-sm text-gray-600 hover:text-sky-500 hover:underline" href="tel:+15146529315" aria-label="Phone">
+        <a class="item" href="tel:+15146529315" aria-label="Phone">
           <span>+1&nbsp;(514)&nbsp;652-9315</span>
-          <svg class="icon w-3.5 h-3.5 text-gray-500" aria-hidden="true"><use href="#i-phone"></use></svg>
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-phone"></use>
+          </svg>
         </a>
-        <span class="item flex items-center justify-end gap-2 whitespace-nowrap w-full text-sm text-gray-600" aria-label="Location">
+        <span class="item" aria-label="Location">
           <span>Montreal, QC, Canada</span>
-          <svg class="icon w-3.5 h-3.5 text-gray-500" aria-hidden="true"><use href="#i-pin"></use></svg>
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-pin"></use>
+          </svg>
         </span>
-        <a class="item flex items-center justify-end gap-2 whitespace-nowrap w-full text-sm text-gray-600 hover:text-sky-500 hover:underline" href="https://linkedin.com/in/simon-corcos" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+        <a class="item" href="https://linkedin.com/in/simon-corcos" target="_blank" rel="noopener"
+          aria-label="LinkedIn profile">
           <span>linkedin.com/in/simon-corcos</span>
-          <svg class="icon w-3.5 h-3.5 text-gray-500" aria-hidden="true"><use href="#i-link"></use></svg>
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-link"></use>
+          </svg>
         </a>
-        <a class="item flex items-center justify-end gap-2 whitespace-nowrap w-full text-sm text-gray-600 hover:text-sky-500 hover:underline" href="https://www.toptal.com/resume/simon-corcos" target="_blank" rel="noopener" aria-label="Toptal resume">
+        <a class="item" href="https://www.toptal.com/resume/simon-corcos" target="_blank" rel="noopener"
+          aria-label="Toptal resume">
           <span>toptal.com/resume/simon-corcos</span>
-          <svg class="icon w-3.5 h-3.5 text-gray-500" aria-hidden="true"><use href="#i-link"></use></svg>
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-link"></use>
+          </svg>
         </a>
       </div>
     </header>
 
-    <hr />
+
 
     <section class="section">
       <h2>Professional Summary</h2>
@@ -170,15 +401,24 @@
     <section class="section">
       <h2>Core Competencies</h2>
       <ul class="competencies">
-        <li><strong>Technology Strategy &amp; Vision</strong> &mdash; Aligning engineering roadmaps with business and clinical goals</li>
-        <li><strong>System Architecture for AI / IoT / Data Platforms</strong> &mdash; Designing scalable, secure, and interoperable systems</li>
-        <li><strong>Cloud &amp; MLOps</strong> &mdash; Expertise in cloud‑native architectures, data analytics, and ML integration pipelines</li>
-        <li><strong>Security &amp; Compliance (HIPAA, Privacy‑First Design)</strong> &mdash; Building safe, regulation‑aligned health systems</li>
-        <li><strong>Health Systems Knowledge &amp; Data Governance</strong> &mdash; Understanding clinical workflows, standards, and responsible AI use</li>
-        <li><strong>Technical Leadership &amp; Mentorship</strong> &mdash; Growing high‑performing engineering and data teams</li>
-        <li><strong>Project &amp; Product Management</strong> &mdash; Delivering complex multi‑platform solutions on time and within budget</li>
-        <li><strong>Communication &amp; Stakeholder Alignment</strong> &mdash; Translating technical concepts for executives and partners</li>
-        <li><strong>Continuous Learning &amp; Adaptability</strong> &mdash; Staying ahead of evolving technologies and regulatory trends</li>
+        <li><strong>Technology Strategy &amp; Vision</strong> &mdash; Aligning engineering roadmaps with business and
+          clinical goals</li>
+        <li><strong>System Architecture for AI / IoT / Data Platforms</strong> &mdash; Designing scalable, secure, and
+          interoperable systems</li>
+        <li><strong>Cloud &amp; MLOps</strong> &mdash; Expertise in cloud‑native architectures, data analytics, and ML
+          integration pipelines</li>
+        <li><strong>Security &amp; Compliance (HIPAA, Privacy‑First Design)</strong> &mdash; Building safe,
+          regulation‑aligned health systems</li>
+        <li><strong>Health Systems Knowledge &amp; Data Governance</strong> &mdash; Understanding clinical workflows,
+          standards, and responsible AI use</li>
+        <li><strong>Technical Leadership &amp; Mentorship</strong> &mdash; Growing high‑performing engineering and data
+          teams</li>
+        <li><strong>Project &amp; Product Management</strong> &mdash; Delivering complex multi‑platform solutions on
+          time and within budget</li>
+        <li><strong>Communication &amp; Stakeholder Alignment</strong> &mdash; Translating technical concepts for
+          executives and partners</li>
+        <li><strong>Continuous Learning &amp; Adaptability</strong> &mdash; Staying ahead of evolving technologies and
+          regulatory trends</li>
       </ul>
     </section>
 
@@ -188,39 +428,54 @@
       <h3>Chief Technology Officer &mdash; HOP TECH, Montreal, QC</h3>
       <div class="sub">2016 &ndash; Present</div>
       <ul>
-        <li><strong>Centralized AI Data Platform:</strong> Architected and implemented a reusable platform that unifies pipelines, preprocessing libraries, and algorithms across internal teams and subcontractors, ensuring IP retention and eliminating one‑off stacks.</li>
-        <li><strong>Clinical Trials Data Collection:</strong> Led development of a secure, end‑to‑end platform across mobile, web, and backend for clinical‑grade data capture and analytics; established practices that streamline collaboration between software, AI, and medical hardware.</li>
-        <li><strong>Cross‑Platform Apps:</strong> Delivered iOS/Android and web applications for real‑time monitoring, visualization, and personalized experiences (Bluetooth/WebSockets, Xamarin, Angular).</li>
-        <li><strong>DevOps &amp; Reliability:</strong> Set up CI/CD and infrastructure (GitLab, Docker, GCP) and instituted automated testing for maintainable, scalable releases.</li>
-        <li><strong>Org Leadership:</strong> Serve as the bridge between AI, software, and hardware; define technical strategy, roadmaps, and delivery processes.</li>
+        <li><strong>Centralized AI Data Platform:</strong> Architected and implemented a reusable platform that unifies
+          pipelines, preprocessing libraries, and algorithms across internal teams and subcontractors, ensuring IP
+          retention and eliminating one‑off stacks.</li>
+        <li><strong>Clinical Trials Data Collection:</strong> Led development of a secure, end‑to‑end platform across
+          mobile, web, and backend for clinical‑grade data capture and analytics; established practices that streamline
+          collaboration between software, AI, and medical hardware.</li>
+        <li><strong>Cross‑Platform Apps:</strong> Delivered iOS/Android and web applications for real‑time monitoring,
+          visualization, and personalized experiences (Bluetooth/WebSockets, Xamarin, Angular).</li>
+        <li><strong>DevOps &amp; Reliability:</strong> Set up CI/CD and infrastructure (GitLab, Docker, GCP) and
+          instituted automated testing for maintainable, scalable releases.</li>
+        <li><strong>Org Leadership:</strong> Serve as the bridge between AI, software, and hardware; define technical
+          strategy, roadmaps, and delivery processes.</li>
       </ul>
-      <div class="sub"><em>Stack:</em> C#, TypeScript, Node.js, Angular, Xamarin, PostgreSQL, MySQL, GCP, Docker, OAuth2, OpenID, ABAC, Bluetooth, WebSockets</div>
+      <div class="sub"><em>Stack:</em> C#, TypeScript, Node.js, Angular, Xamarin, PostgreSQL, MySQL, GCP, Docker,
+        OAuth2, OpenID, ABAC, Bluetooth, WebSockets</div>
 
       <hr />
 
       <h3>Head of Engineering &mdash; Red Krypton (Agency)</h3>
       <div class="sub">~2024 &ndash; Present (part‑time)</div>
       <ul>
-        <li><strong>Developer Experience &amp; Onboarding:</strong> Introduced GitHub Codespaces and GitHub Actions for reproducible environments, reducing setup from hours to under 30 minutes.</li>
-        <li><strong>Client Delivery:</strong> Led custom web apps, data pipelines, and integrations for multiple clients; collaborated with founders/CTOs on architecture and delivery plans.</li>
-        <li><strong>Quality &amp; Velocity:</strong> Established documentation, standards, and CI/CD practices to improve throughput and consistency across engagements.</li>
+        <li><strong>Developer Experience &amp; Onboarding:</strong> Introduced GitHub Codespaces and GitHub Actions for
+          reproducible environments, reducing setup from hours to under 30 minutes.</li>
+        <li><strong>Client Delivery:</strong> Led custom web apps, data pipelines, and integrations for multiple
+          clients; collaborated with founders/CTOs on architecture and delivery plans.</li>
+        <li><strong>Quality &amp; Velocity:</strong> Established documentation, standards, and CI/CD practices to
+          improve throughput and consistency across engagements.</li>
       </ul>
-      <div class="sub"><em>Stack:</em> React, Next.js, Node.js, AWS, GitHub Actions, PostgreSQL, Docker, Python, REST APIs</div>
+      <div class="sub"><em>Stack:</em> React, Next.js, Node.js, AWS, GitHub Actions, PostgreSQL, Docker, Python, REST
+        APIs</div>
 
       <hr />
 
       <h3>Freelance Software Engineer &mdash; Toptal Network</h3>
       <div class="sub">2018 &ndash; Present</div>
       <ul>
-        <li>Partnered with 15+ companies (startup to enterprise) delivering full‑stack and data‑driven solutions; adapted quickly to diverse stacks and engineering cultures.</li>
-        <li>Brought cross‑industry best practices to new teams, focusing on scalability, maintainability, and measurable impact.</li>
+        <li>Partnered with 15+ companies (startup to enterprise) delivering full‑stack and data‑driven solutions;
+          adapted quickly to diverse stacks and engineering cultures.</li>
+        <li>Brought cross‑industry best practices to new teams, focusing on scalability, maintainability, and measurable
+          impact.</li>
       </ul>
 
       <hr />
 
       <h3>Earlier Experience (Selected)</h3>
       <ul>
-        <li><strong>ERP Customization Specialist</strong> &mdash; Gurus Solutions (2015 &ndash; 2016) &nbsp;|&nbsp; SuiteScript/JavaScript, SQL</li>
+        <li><strong>ERP Customization Specialist</strong> &mdash; Gurus Solutions (2015 &ndash; 2016) &nbsp;|&nbsp;
+          SuiteScript/JavaScript, SQL</li>
         <li><strong>Web Developer</strong> &mdash; SOS Cuisine (2014) &nbsp;|&nbsp; PHP, MySQL, Front‑end UX</li>
       </ul>
     </section>
@@ -228,8 +483,10 @@
     <section class="section">
       <h2>Education</h2>
       <ul>
-        <li><strong>B.Eng., Software Engineering</strong> &mdash; École de technologie supérieure (ÉTS), Montreal (2016)</li>
-        <li>Post‑grad coursework in AI &amp; Big Data (2017); IVADO Responsible AI Forum (2017); Creative Destruction Lab &amp; MILA Health AI Expedition (2019)</li>
+        <li><strong>B.Eng., Software Engineering</strong> &mdash; École de technologie supérieure (ÉTS), Montreal (2016)
+        </li>
+        <li>Post‑grad coursework in AI &amp; Big Data (2017); IVADO Responsible AI Forum (2017); Creative Destruction
+          Lab &amp; MILA Health AI Expedition (2019)</li>
       </ul>
     </section>
 
@@ -244,7 +501,8 @@
     <section class="section">
       <h2>Volunteer &amp; Interests</h2>
       <ul>
-        <li><strong>MMS Foundation</strong> &mdash; Field coordinator &amp; web contributor supporting surgical missions and digital logistics.</li>
+        <li><strong>MMS Foundation</strong> &mdash; Field coordinator &amp; web contributor supporting surgical missions
+          and digital logistics.</li>
         <li>Rock climbing, surfing, chess.</li>
       </ul>
     </section>
@@ -252,4 +510,5 @@
     <p class="footer">Updated October 2025</p>
   </main>
 </body>
+
 </html>
