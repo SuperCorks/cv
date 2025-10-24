@@ -28,7 +28,7 @@
       /* slate-900 */
       --muted: #4b5563;
       /* gray-600 */
-      --accent: #0ea5e9;
+      --accent: #307696;
       /* sky-500 */
       --rule: #e5e7eb;
       /* gray-200 */
@@ -59,7 +59,7 @@
 
     .page {
       max-width: 900px;
-      margin: 28px auto;
+      margin: 8px auto;
       padding: 36px 32px;
       border: 1px solid var(--rule);
       border-radius: 10px;
@@ -88,6 +88,10 @@
     }
 
     @media (min-width: 720px) {
+      .page {
+        margin: 28px auto;
+      }
+
       header {
         grid-template-columns: 1fr auto;
         grid-template-areas:
@@ -153,11 +157,14 @@
       color: var(--accent);
       text-decoration: underline;
     }
+
     .page a:not(.item):visited {
       color: var(--accent);
     }
+
     .page a:not(.item):hover {
-      color: #0284c7; /* darker accent on hover */
+      color: #0284c7;
+      /* darker accent on hover */
       text-decoration: underline;
     }
 
@@ -298,12 +305,6 @@
 
     /* Print/PDF optimization */
     @media print {
-      :root {
-        /* Increase contrast and avoid light colors for B/W printers */
-        --accent: #111827;
-        --muted: #374151;
-        --rule: #d1d5db;
-      }
 
       @page {
         margin: 12mm 14mm;
@@ -444,9 +445,9 @@
         I lead cross‑functional teams and own architecture across mobile, web, and cloud,
         with a focus on secure clinical data collection, training our own AI models, and
         delivering highly usable products for clinicians and patients. Experienced at creating
-        live demos, engaging with clients, and translating between engineering and executives
-        (finance, CEO, and business development). Comfortable translating business goals into
-        technical roadmaps and delivering reliable, compliant systems.
+        live demos, engaging with clients, and translating between engineering and executives.
+        Comfortable translating business goals into technical roadmaps and delivering reliable,
+        compliant systems.
       </p>
     </section>
 
@@ -455,7 +456,8 @@
       <ul class="competencies">
         <li><strong>Technology Strategy &amp; Vision</strong> &mdash; Aligning engineering roadmaps with business and
           clinical goals</li>
-        <li><strong>System Architecture for AI / IoT / Data Platforms</strong> &mdash; Designing scalable, secure, and
+        <li><strong>System Architecture for AI / Web / Mobile / Data Platforms</strong> &mdash; Designing scalable,
+          secure, and
           interoperable systems</li>
         <li><strong>Cloud &amp; MLOps</strong> &mdash; Expertise in cloud‑native architectures, data analytics, and ML
           integration pipelines</li>
@@ -484,47 +486,51 @@
       </div>
       <ul>
         <li><strong>Centralized AI Data Platform:</strong> Architected and implemented a reusable platform that unifies
-          pipelines, preprocessing libraries, and algorithms across internal teams and subcontractors, ensuring IP
+          pipelines, preprocessing libraries, datasets and algorithms across internal teams and subcontractors, ensuring
+          IP
           retention and eliminating one‑off stacks.</li>
-        <li><strong>Clinical Trials Data Collection:</strong> Led development of a secure, end‑to‑end platform across
+        <li><strong>Clinical Trials Platform:</strong> Led development of a secure, end‑to‑end platform across
           mobile, web, and backend for clinical‑grade data capture and analytics; established practices that streamline
           collaboration between software, AI, and medical hardware.</li>
         <li><strong>Cross‑Platform Apps:</strong> Delivered iOS/Android and web applications for real‑time monitoring,
-          visualization, and personalized experiences (Bluetooth/WebSockets, Xamarin, Angular).</li>
-        <li><strong>DevOps &amp; Reliability:</strong> Set up CI/CD and infrastructure (GitLab, Docker, GCP) and
-          instituted automated testing for maintainable, scalable releases.</li>
+          visualization, and personalized experiences (Bluetooth, WebSockets, React Native).</li>
+        <li><strong>DevOps &amp; Reliability:</strong> Set up CI/CD and infrastructure (Github, Docker, GCP) and
+          instituted automated testing and deployments for maintainable, scalable releases.</li>
         <li><strong>Org Leadership:</strong> Serve as the bridge between AI, software, and hardware; define technical
           strategy, roadmaps, and delivery processes.</li>
       </ul>
-      <div class="sub"><em>Stack:</em> C#, TypeScript, Node.js, Angular, Xamarin, PostgreSQL, MySQL, GCP, Docker,
-        OAuth2, OpenID, ABAC, Bluetooth, WebSockets</div>
+      <div class="sub"><em>Stack:</em> TypeScript, C#, Python, Next.js, Node.js, React Native, .NET MAUI, PostgreSQL,
+        GCP, Docker,
+        Bluetooth, WebSockets, Databricks, PyTorch, TensorFlow, Big Query, Apache Spark</div>
 
       <hr />
 
       <h3>Head of Engineering &mdash; Red Krypton</h3>
-      <div class="sub">~2024 &ndash; Present (part‑time)</div>
+      <div class="sub">2024 &ndash; Present (part‑time)</div>
       <div class="sub">Red Krypton — New York based growth and technology agency for DTC brands; delivers data‑driven
         marketing, apps and integrations across the US and Canada.</div>
       <ul>
         <li><strong>Developer Experience &amp; Onboarding:</strong> Introduced GitHub Codespaces and GitHub Actions for
-          reproducible environments, reducing setup from hours to under 30 minutes.</li>
+          reproducible environments, reducing new developer onboarding from hours to minutes.</li>
         <li><strong>Client Delivery:</strong> Led custom web apps, data pipelines, and integrations for multiple
-          clients; collaborated with founders/CTOs on architecture and delivery plans.</li>
+          clients; collaborated with founders & CTOs on architecture and delivery plans.</li>
         <li><strong>Quality &amp; Velocity:</strong> Established documentation, standards, and CI/CD practices to
-          improve throughput and consistency across engagements.</li>
+          improve throughput and consistency across clients.</li>
       </ul>
-      <div class="sub"><em>Stack:</em> React, Next.js, Node.js, AWS, GitHub Actions, PostgreSQL, Docker, Python, REST
-        APIs</div>
+      <div class="sub"><em>Stack:</em> TypeScript, Next.js, Node.js, GCP, AWS, GitHub Actions, PostgreSQL, Big Query,
+        Redshift, Docker,
+        GraphQL, Webflow, Shopify, Framer, Wordpress, Segment.io, Klaviyo, Google Tag Manager, GA4</div>
 
       <hr />
 
-      <h3>Freelance Software Engineer &mdash; Toptal Network</h3>
+      <h3>Freelance Software Engineer &mdash; Toptal</h3>
       <div class="sub">2018 &ndash; Present</div>
       <ul>
         <li>Partnered with over 10 clients/companies (startup to enterprise) delivering full‑stack and data‑driven
           solutions;
           adapted quickly to diverse stacks and engineering cultures.</li>
-        <li>See my <a href="https://www.toptal.com/resume/simon-corcos" target="_blank" rel="noopener noreferrer" aria-label="Toptal resume">Toptal Profile</a> for more details.</li>
+        <li>See my <a href="https://www.toptal.com/resume/simon-corcos" target="_blank" rel="noopener noreferrer"
+            aria-label="Toptal resume">Toptal Profile</a> for more details.</li>
       </ul>
 
       <hr />
@@ -554,8 +560,18 @@
     <section class="section">
       <h2>Patents &amp; Recognition</h2>
       <ul>
-        <li>Named inventor on applications related to arousal‑state monitoring and AI‑based data labeling systems.</li>
-        <li>Featured freelance engineer within the Toptal network.</li>
+        <li><strong>Co-author</strong>, <em>Artificial Intelligence-Based Digital Biomarkers for
+            Type&nbsp;2&nbsp;Diabetes: A
+            Review</em>, Canadian Journal of Cardiology, 40(10), 1922–1933 (2024). <a
+            href="https://onlinecjc.ca/article/S0828-282X%2824%2900587-7/fulltext" target="_blank" rel="noopener">Read
+            article</a></li>
+        <li><strong>Inventor</strong>, <em>Systems and methods for labelling data</em>, US&nbsp;20240211495&nbsp;A1
+          (Technologies&nbsp;Hop-Child&nbsp;Inc.), 2024. <a href="https://patents.google.com/patent/US20240211495A1/en"
+            target="_blank" rel="noopener">View patent</a></li>
+        <li><strong>Inventor</strong>, <em>Systems and methods for the determination of arousal states, calibrated
+            communication signals and monitoring arousal states</em>, US&nbsp;20210106290&nbsp;A1
+          (Technologies&nbsp;Hop-Child&nbsp;Inc.), 2021. <a href="https://patents.google.com/patent/US20210106290A1/en"
+            target="_blank" rel="noopener">View patent</a></li>
       </ul>
     </section>
 
