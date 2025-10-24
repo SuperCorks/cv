@@ -8,9 +8,11 @@
   <!-- Modern, print-friendly fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap"
+    rel="stylesheet">
 
-  
+
   <!-- Tailwind (no-build) via CDN; preflight disabled to preserve existing styles -->
   <script>
     tailwind.config = {
@@ -146,6 +148,19 @@
       text-decoration: underline;
     }
 
+    /* Content links: accent color + underline (exclude header contact links) */
+    .page a:not(.item) {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    .page a:not(.item):visited {
+      color: var(--accent);
+    }
+    .page a:not(.item):hover {
+      color: #0284c7; /* darker accent on hover */
+      text-decoration: underline;
+    }
+
     .icon {
       width: 14px;
       height: 14px;
@@ -179,7 +194,7 @@
     }
 
     .cv h3 {
-      font-size: 15px;
+      font-size: 18px;
       font-weight: 600;
       margin: 10px 0 2px;
       font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial;
@@ -187,9 +202,18 @@
 
     /* Emphasis vs headings: keep <strong>/<b> lighter than H2s */
     .cv strong,
-    .cv b { font-weight: 600; }
-    .cv h1 strong, .cv h2 strong, .cv h3 strong,
-    .cv h1 b, .cv h2 b, .cv h3 b { font-weight: inherit; }
+    .cv b {
+      font-weight: 600;
+    }
+
+    .cv h1 strong,
+    .cv h2 strong,
+    .cv h3 strong,
+    .cv h1 b,
+    .cv h2 b,
+    .cv h3 b {
+      font-weight: inherit;
+    }
 
     .sub {
       color: var(--muted);
@@ -206,9 +230,21 @@
       margin: 8px 0;
     }
 
-    ul {
+    .cv ul {
       margin: 6px 0 12px 18px;
       padding: 0;
+      list-style: disc outside;
+    }
+
+    .cv ol {
+      margin: 6px 0 12px 18px;
+      padding: 0;
+      list-style: decimal outside;
+    }
+
+    /* Force markers even if a reset disables them */
+    .cv li {
+      display: list-item;
     }
 
     li {
@@ -217,6 +253,7 @@
 
     .competencies {
       margin-left: 18px;
+      list-style: disc outside;
     }
 
     .competencies li {
@@ -402,12 +439,14 @@
     <section class="section">
       <h2>Professional Summary</h2>
       <p>
-        Technology leader and full‑stack engineer with 10+ years of experience building
-        large‑scale, data‑driven software in healthtech, AI, and IoT. As CTO at HOP TECH,
+        Highly skilled full‑stack engineer with 10+ years of experience building
+        software in healthtech and more recently, ecommerce. As CTO at HOP TECH,
         I lead cross‑functional teams and own architecture across mobile, web, and cloud,
-        with a strong focus on secure clinical data collection, reusable AI platforms, and
-        execution at pace. Comfortable translating business goals into technical roadmaps
-        and delivering reliable, compliant systems.
+        with a focus on secure clinical data collection, training our own AI models, and
+        delivering highly usable products for clinicians and patients. Experienced at creating
+        live demos, engaging with clients, and translating between engineering and executives
+        (finance, CEO, and business development). Comfortable translating business goals into
+        technical roadmaps and delivering reliable, compliant systems.
       </p>
     </section>
 
@@ -421,15 +460,16 @@
         <li><strong>Cloud &amp; MLOps</strong> &mdash; Expertise in cloud‑native architectures, data analytics, and ML
           integration pipelines</li>
         <li><strong>Security &amp; Compliance (HIPAA, Privacy‑First Design)</strong> &mdash; Building safe,
-          regulation‑aligned health systems</li>
+          regulation‑aligned health systems. Monthly HIPAA training.</li>
         <li><strong>Health Systems Knowledge &amp; Data Governance</strong> &mdash; Understanding clinical workflows,
-          standards, and responsible AI use</li>
-        <li><strong>Technical Leadership &amp; Mentorship</strong> &mdash; Growing high‑performing engineering and data
+          standards, and ethical AI</li>
+        <li><strong>Technical Leadership &amp; Mentorship</strong> &mdash; Growing high‑performing engineering and AI
           teams</li>
-        <li><strong>Project &amp; Product Management</strong> &mdash; Delivering complex multi‑platform solutions on
-          time and within budget</li>
-        <li><strong>Communication &amp; Stakeholder Alignment</strong> &mdash; Translating technical concepts for
-          executives and partners</li>
+        <li><strong>Project &amp; Product Management</strong> &mdash; Delivering complex multi‑platform solutions
+          aligned with stakeholders' needs</li>
+        <li><strong>Communication, Demos &amp; Stakeholder Alignment</strong> &mdash; Building compelling demos, leading
+          client conversations, and translating between engineering and company executives or clients
+        </li>
         <li><strong>Continuous Learning &amp; Adaptability</strong> &mdash; Staying ahead of evolving technologies and
           regulatory trends</li>
       </ul>
@@ -438,8 +478,10 @@
     <section class="section">
       <h2>Professional Experience</h2>
 
-      <h3>Chief Technology Officer &mdash; HOP TECH, Montreal, QC</h3>
+      <h3>Chief Technology Officer &mdash; HOP TECH</h3>
       <div class="sub">2016 &ndash; Present</div>
+      <div class="sub">HOP TECH — Canadian digital health company building AI-powered medical hardware and software.
+      </div>
       <ul>
         <li><strong>Centralized AI Data Platform:</strong> Architected and implemented a reusable platform that unifies
           pipelines, preprocessing libraries, and algorithms across internal teams and subcontractors, ensuring IP
@@ -459,8 +501,10 @@
 
       <hr />
 
-      <h3>Head of Engineering &mdash; Red Krypton (Agency)</h3>
+      <h3>Head of Engineering &mdash; Red Krypton</h3>
       <div class="sub">~2024 &ndash; Present (part‑time)</div>
+      <div class="sub">Red Krypton — New York based growth and technology agency for DTC brands; delivers data‑driven
+        marketing, apps and integrations across the US and Canada.</div>
       <ul>
         <li><strong>Developer Experience &amp; Onboarding:</strong> Introduced GitHub Codespaces and GitHub Actions for
           reproducible environments, reducing setup from hours to under 30 minutes.</li>
@@ -477,16 +521,20 @@
       <h3>Freelance Software Engineer &mdash; Toptal Network</h3>
       <div class="sub">2018 &ndash; Present</div>
       <ul>
-        <li>Partnered with 15+ companies (startup to enterprise) delivering full‑stack and data‑driven solutions;
+        <li>Partnered with over 10 clients/companies (startup to enterprise) delivering full‑stack and data‑driven
+          solutions;
           adapted quickly to diverse stacks and engineering cultures.</li>
-        <li>Brought cross‑industry best practices to new teams, focusing on scalability, maintainability, and measurable
-          impact.</li>
+        <li>See my <a href="https://www.toptal.com/resume/simon-corcos" target="_blank" rel="noopener noreferrer" aria-label="Toptal resume">Toptal Profile</a> for more details.</li>
       </ul>
 
       <hr />
 
-      <h3>Earlier Experience (Selected)</h3>
+      <h3>Other Experience</h3>
       <ul>
+        <li><strong>Data Engineer (part‑time)</strong> &mdash; Clover Health (2025 &ndash; Present) &nbsp;|&nbsp; Data
+          infrastructure &amp; pipelines; Segment (custom Functions, Unify, Engage), Twilio, GitHub Actions</li>
+        <li><strong>Lead Mobile Apps Developer</strong> &mdash; Milliman (2022 &ndash; 2025) &nbsp;|&nbsp; Android, iOS,
+          .NET MAUI, Azure; agile/Scrum delivery</li>
         <li><strong>Netsuite Cloud ERP Specialist</strong> &mdash; Gurus Solutions (2015 &ndash; 2016) &nbsp;|&nbsp;
           SuiteScript/JavaScript, SQL</li>
         <li><strong>Web Developer</strong> &mdash; SOS Cuisine (2014) &nbsp;|&nbsp; PHP, MySQL, Front‑end UX</li>
