@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simon Corcos — CV</title>
+  <style>
+    :root {
+      --text: #111827;      /* slate-900 */
+      --muted: #4b5563;     /* gray-600 */
+      --accent: #0ea5e9;    /* sky-500 */
+      --rule: #e5e7eb;      /* gray-200 */
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                   Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji",
+                   "Segoe UI Emoji";
+      color: var(--text);
+      line-height: 1.4;
+      background: #fff;
+    }
+    .page {
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 32px 28px;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+    }
+    h1 { font-size: 28px; margin: 0 0 4px; }
+    .tagline { font-size: 16px; color: var(--muted); margin: 0 0 12px; }
+    .meta { display: flex; flex-wrap: wrap; gap: 10px 24px; margin: 8px 0 0; }
+    .meta a { color: var(--accent); text-decoration: none; }
+    .meta a:hover { text-decoration: underline; }
+    hr { border: 0; border-top: 1px solid var(--rule); margin: 18px 0; }
+    h2 { font-size: 18px; margin: 20px 0 8px; letter-spacing: 0.2px; }
+    h3 { font-size: 15px; margin: 10px 0 2px; }
+    .sub { color: var(--muted); font-size: 13px; }
+    .section { margin-top: 10px; }
+    ul { margin: 6px 0 12px 18px; padding: 0; }
+    li { margin: 6px 0; }
+    .pill {
+      display: inline-block; border: 1px solid var(--rule); padding: 6px 10px;
+      border-radius: 999px; margin: 6px 8px 0 0; font-size: 13px; color: var(--muted);
+    }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 6px; }
+    @media (min-width: 720px) {
+      .grid.two { grid-template-columns: 1fr 1fr; }
+      .grid.three { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .footer { color: var(--muted); font-size: 12px; margin-top: 14px; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Simon Corcos</h1>
+      <p class="tagline">CTO &amp; Senior Software Engineer &mdash; Architecting AI, IoT &amp; Digital Health Platforms</p>
+      <div class="meta">
+        <span>Montreal, QC, Canada</span>
+        <a href="mailto:simoncorcos@yahoo.ca">simoncorcos@yahoo.ca</a>
+        <span>+1&nbsp;(514)&nbsp;652-9315</span>
+        <a href="https://linkedin.com/in/simon-corcos" target="_blank" rel="noopener">linkedin.com/in/simon-corcos</a>
+        <a href="https://www.toptal.com/resume/simon-corcos" target="_blank" rel="noopener">toptal.com/resume/simon-corcos</a>
+      </div>
+    </header>
+
+    <hr />
+
+    <section class="section">
+      <h2>Professional Summary</h2>
+      <p>
+        Technology leader and full‑stack engineer with 10+ years of experience building
+        large‑scale, data‑driven software in healthtech, AI, and IoT. As CTO at HOP TECH,
+        I lead cross‑functional teams and own architecture across mobile, web, and cloud,
+        with a strong focus on secure clinical data collection, reusable AI platforms, and
+        execution at pace. Comfortable translating business goals into technical roadmaps
+        and delivering reliable, compliant systems.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Core Competencies</h2>
+      <div class="grid two">
+        <div>
+          <span class="pill">System &amp; Software Architecture</span>
+          <span class="pill">Technical Leadership &amp; Mentorship</span>
+          <span class="pill">AI &amp; Data Platforms</span>
+          <span class="pill">Security: OAuth2, OpenID, ABAC</span>
+        </div>
+        <div>
+          <span class="pill">Full‑Stack: Node.js, .NET, Angular, React</span>
+          <span class="pill">Mobile: iOS/Android, Xamarin</span>
+          <span class="pill">DevOps &amp; CI/CD</span>
+          <span class="pill">Cloud: GCP, AWS</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Professional Experience</h2>
+
+      <h3>Chief Technology Officer &mdash; HOP TECH, Montreal, QC</h3>
+      <div class="sub">2016 &ndash; Present</div>
+      <ul>
+        <li><strong>Centralized AI Data Platform:</strong> Architected and implemented a reusable platform that unifies pipelines, preprocessing libraries, and algorithms across internal teams and subcontractors, ensuring IP retention and eliminating one‑off stacks.</li>
+        <li><strong>Clinical Trials Data Collection:</strong> Led development of a secure, end‑to‑end platform across mobile, web, and backend for clinical‑grade data capture and analytics; established practices that streamline collaboration between software, AI, and medical hardware.</li>
+        <li><strong>Cross‑Platform Apps:</strong> Delivered iOS/Android and web applications for real‑time monitoring, visualization, and personalized experiences (Bluetooth/WebSockets, Xamarin, Angular).</li>
+        <li><strong>DevOps &amp; Reliability:</strong> Set up CI/CD and infrastructure (GitLab, Docker, GCP) and instituted automated testing for maintainable, scalable releases.</li>
+        <li><strong>Org Leadership:</strong> Serve as the bridge between AI, software, and hardware; define technical strategy, roadmaps, and delivery processes.</li>
+      </ul>
+      <div class="sub"><em>Stack:</em> C#, TypeScript, Node.js, Angular, Xamarin, PostgreSQL, MySQL, GCP, Docker, OAuth2, OpenID, ABAC, Bluetooth, WebSockets</div>
+
+      <hr />
+
+      <h3>Head of Engineering &mdash; Red Krypton (Agency)</h3>
+      <div class="sub">~2024 &ndash; Present (part‑time)</div>
+      <ul>
+        <li><strong>Developer Experience &amp; Onboarding:</strong> Introduced GitHub Codespaces and GitHub Actions for reproducible environments, reducing setup from hours to under 30 minutes.</li>
+        <li><strong>Client Delivery:</strong> Led custom web apps, data pipelines, and integrations for multiple clients; collaborated with founders/CTOs on architecture and delivery plans.</li>
+        <li><strong>Quality &amp; Velocity:</strong> Established documentation, standards, and CI/CD practices to improve throughput and consistency across engagements.</li>
+      </ul>
+      <div class="sub"><em>Stack:</em> React, Next.js, Node.js, AWS, GitHub Actions, PostgreSQL, Docker, Python, REST APIs</div>
+
+      <hr />
+
+      <h3>Freelance Software Engineer &mdash; Toptal Network</h3>
+      <div class="sub">2018 &ndash; Present</div>
+      <ul>
+        <li>Partnered with 15+ companies (startup to enterprise) delivering full‑stack and data‑driven solutions; adapted quickly to diverse stacks and engineering cultures.</li>
+        <li>Brought cross‑industry best practices to new teams, focusing on scalability, maintainability, and measurable impact.</li>
+      </ul>
+
+      <hr />
+
+      <h3>Earlier Experience (Selected)</h3>
+      <ul>
+        <li><strong>ERP Customization Specialist</strong> &mdash; Gurus Solutions (2015 &ndash; 2016) &nbsp;|&nbsp; SuiteScript/JavaScript, SQL</li>
+        <li><strong>Web Developer</strong> &mdash; SOS Cuisine (2014) &nbsp;|&nbsp; PHP, MySQL, Front‑end UX</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>B.Eng., Software Engineering</strong> &mdash; École de technologie supérieure (ÉTS), Montreal (2016)</li>
+        <li>Post‑grad coursework in AI &amp; Big Data (2017); IVADO Responsible AI Forum (2017); Creative Destruction Lab &amp; MILA Health AI Expedition (2019)</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Patents &amp; Recognition</h2>
+      <ul>
+        <li>Named inventor on applications related to arousal‑state monitoring and AI‑based data labeling systems.</li>
+        <li>Featured freelance engineer within the Toptal network.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Volunteer &amp; Interests</h2>
+      <ul>
+        <li><strong>MMS Foundation</strong> &mdash; Field coordinator &amp; web contributor supporting surgical missions and digital logistics.</li>
+        <li>Rock climbing, surfing, chess.</li>
+      </ul>
+    </section>
+
+    <p class="footer">Updated October 2025</p>
+  </main>
+</body>
+</html>
