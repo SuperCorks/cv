@@ -18,51 +18,138 @@
                    Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji",
                    "Segoe UI Emoji";
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.55;
       background: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      hyphens: auto;
     }
     .page {
       max-width: 900px;
-      margin: 24px auto;
-      padding: 32px 28px;
+      margin: 28px auto;
+      padding: 36px 32px;
       border: 1px solid var(--rule);
       border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
     }
-    h1 { font-size: 28px; margin: 0 0 4px; }
-    .tagline { font-size: 16px; color: var(--muted); margin: 0 0 12px; }
-    .meta { display: flex; flex-wrap: wrap; gap: 10px 24px; margin: 8px 0 0; }
-    .meta a { color: var(--accent); text-decoration: none; }
-    .meta a:hover { text-decoration: underline; }
+    h1 { font-size: 30px; margin: 0 0 4px; letter-spacing: 0.2px; }
+    .tagline { font-size: 16px; color: var(--muted); margin: 2px 0 12px; }
+    /* Tailwind handles header/meta layout; keep only minimal overrides */
+    .meta { text-align: right; }
+    .meta a.item { color: var(--text); text-decoration: none; }
+    .meta a.item:hover { color: var(--accent); text-decoration: underline; }
+    .icon {
+      width: 14px; height: 14px; color: #6b7280; flex: 0 0 auto;
+      stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+    }
+    /* trailing icons on the right list */
+    .item .icon { margin-left: 8px; }
     hr { border: 0; border-top: 1px solid var(--rule); margin: 18px 0; }
-    h2 { font-size: 18px; margin: 20px 0 8px; letter-spacing: 0.2px; }
+    h2 { font-size: 18px; margin: 20px 0 8px; letter-spacing: 0.3px; text-transform: none; }
     h3 { font-size: 15px; margin: 10px 0 2px; }
     .sub { color: var(--muted); font-size: 13px; }
-    .section { margin-top: 10px; }
+    .section { margin-top: 12px; }
+    p { margin: 8px 0; }
     ul { margin: 6px 0 12px 18px; padding: 0; }
     li { margin: 6px 0; }
+  .competencies { margin-left: 18px; }
+  .competencies li { margin: 10px 0; }
+  .competencies strong { font-weight: 700; }
     .pill {
       display: inline-block; border: 1px solid var(--rule); padding: 6px 10px;
       border-radius: 999px; margin: 6px 8px 0 0; font-size: 13px; color: var(--muted);
     }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 6px; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
     @media (min-width: 720px) {
       .grid.two { grid-template-columns: 1fr 1fr; }
       .grid.three { grid-template-columns: 1fr 1fr 1fr; }
     }
     .footer { color: var(--muted); font-size: 12px; margin-top: 14px; }
+
+    /* Print/PDF optimization */
+    @media print {
+      :root {
+        /* Increase contrast and avoid light colors for B/W printers */
+        --accent: #111827;
+        --muted: #374151;
+        --rule: #d1d5db;
+      }
+      @page { margin: 12mm 14mm; }
+      html, body { background: #fff; }
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+  a, a:visited { color: inherit; text-decoration: none; border: 0; }
+  .icon { color: #000; }
+      header, section, ul, li { break-inside: avoid; page-break-inside: avoid; }
+      h2, h3 { break-after: avoid; page-break-after: avoid; }
+      hr { margin: 12px 0; border-top-color: var(--rule); }
+      .pill { border-color: #9ca3af; color: var(--muted); padding: 4px 8px; }
+      .footer { margin-top: 8px; }
+    }
   </style>
+  <!-- Tailwind (no-build) via CDN; preflight disabled to preserve existing styles -->
+  <script>
+    tailwind = {
+      config: {
+        corePlugins: { preflight: false },
+        theme: { extend: {} }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-  <main class="page">
-    <header>
-      <h1>Simon Corcos</h1>
-      <p class="tagline">CTO &amp; Senior Software Engineer &mdash; Architecting AI, IoT &amp; Digital Health Platforms</p>
-      <div class="meta">
-        <span>Montreal, QC, Canada</span>
-        <a href="mailto:simoncorcos@yahoo.ca">simoncorcos@yahoo.ca</a>
-        <span>+1&nbsp;(514)&nbsp;652-9315</span>
-        <a href="https://linkedin.com/in/simon-corcos" target="_blank" rel="noopener">linkedin.com/in/simon-corcos</a>
-        <a href="https://www.toptal.com/resume/simon-corcos" target="_blank" rel="noopener">toptal.com/resume/simon-corcos</a>
+  <!-- SVG symbol sprite for header icons (print-safe, no network calls) -->
+  <svg aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute; width:0; height:0; overflow:hidden">
+    <symbol id="i-pin" viewBox="0 0 24 24">
+      <path d="M12 22s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"></path>
+      <circle cx="12" cy="11" r="3"></circle>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24">
+      <path d="M4 6h16v12H4z"></path>
+      <path d="m4 7 8 6 8-6"></path>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24">
+      <path d="M22 16.92v2a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.4 19.4 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.12 1h2a2 2 0 0 1 2 1.72c.13.98.36 1.94.67 2.86a2 2 0 0 1-.45 2.11L7 8a16 16 0 0 0 9 9l.31-.34a2 2 0 0 1 2.11-.45c.92.31 1.88.54 2.86.67A2 2 0 0 1 22 16.92Z"></path>
+    </symbol>
+    <symbol id="i-link" viewBox="0 0 24 24">
+      <path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11 5"></path>
+      <path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07L13 19"></path>
+    </symbol>
+  </svg>
+  <main class="page max-w-[900px] mx-auto my-7 p-9 border rounded-xl shadow-sm">
+    <header class="grid gap-1 md:grid-cols-[1fr_auto] md:gap-x-6 items-start">
+      <h1 class="text-3xl font-bold tracking-wide">Simon Corcos</h1>
+      <p class="tagline text-base text-gray-600">CTO &amp; Senior Software Engineer <br> &mdash; Architecting Apps, Data &amp; AI in Healthcare and Ecommerce</p>
+      <div class="meta md:row-span-2 md:col-start-2 justify-self-end flex flex-col items-end text-right gap-1">
+        <a class="item flex items-center justify-end gap-2 whitespace-nowrap w-full text-sm text-gray-600 hover:text-sky-500 hover:underline" href="mailto:simon@corcos.ca" aria-label="Email">
+          <span>simon@corcos.ca</span>
+          <svg class="icon w-3.5 h-3.5 text-gray-500" aria-hidden="true"><use href="#i-mail"></use></svg>
+        </a>
+        <a class="item flex items-center justify-end gap-2 whitespace-nowrap w-full text-sm text-gray-600 hover:text-sky-500 hover:underline" href="tel:+15146529315" aria-label="Phone">
+          <span>+1&nbsp;(514)&nbsp;652-9315</span>
+          <svg class="icon w-3.5 h-3.5 text-gray-500" aria-hidden="true"><use href="#i-phone"></use></svg>
+        </a>
+        <span class="item flex items-center justify-end gap-2 whitespace-nowrap w-full text-sm text-gray-600" aria-label="Location">
+          <span>Montreal, QC, Canada</span>
+          <svg class="icon w-3.5 h-3.5 text-gray-500" aria-hidden="true"><use href="#i-pin"></use></svg>
+        </span>
+        <a class="item flex items-center justify-end gap-2 whitespace-nowrap w-full text-sm text-gray-600 hover:text-sky-500 hover:underline" href="https://linkedin.com/in/simon-corcos" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+          <span>linkedin.com/in/simon-corcos</span>
+          <svg class="icon w-3.5 h-3.5 text-gray-500" aria-hidden="true"><use href="#i-link"></use></svg>
+        </a>
+        <a class="item flex items-center justify-end gap-2 whitespace-nowrap w-full text-sm text-gray-600 hover:text-sky-500 hover:underline" href="https://www.toptal.com/resume/simon-corcos" target="_blank" rel="noopener" aria-label="Toptal resume">
+          <span>toptal.com/resume/simon-corcos</span>
+          <svg class="icon w-3.5 h-3.5 text-gray-500" aria-hidden="true"><use href="#i-link"></use></svg>
+        </a>
       </div>
     </header>
 
@@ -82,20 +169,17 @@
 
     <section class="section">
       <h2>Core Competencies</h2>
-      <div class="grid two">
-        <div>
-          <span class="pill">System &amp; Software Architecture</span>
-          <span class="pill">Technical Leadership &amp; Mentorship</span>
-          <span class="pill">AI &amp; Data Platforms</span>
-          <span class="pill">Security: OAuth2, OpenID, ABAC</span>
-        </div>
-        <div>
-          <span class="pill">Full‑Stack: Node.js, .NET, Angular, React</span>
-          <span class="pill">Mobile: iOS/Android, Xamarin</span>
-          <span class="pill">DevOps &amp; CI/CD</span>
-          <span class="pill">Cloud: GCP, AWS</span>
-        </div>
-      </div>
+      <ul class="competencies">
+        <li><strong>Technology Strategy &amp; Vision</strong> &mdash; Aligning engineering roadmaps with business and clinical goals</li>
+        <li><strong>System Architecture for AI / IoT / Data Platforms</strong> &mdash; Designing scalable, secure, and interoperable systems</li>
+        <li><strong>Cloud &amp; MLOps</strong> &mdash; Expertise in cloud‑native architectures, data analytics, and ML integration pipelines</li>
+        <li><strong>Security &amp; Compliance (HIPAA, Privacy‑First Design)</strong> &mdash; Building safe, regulation‑aligned health systems</li>
+        <li><strong>Health Systems Knowledge &amp; Data Governance</strong> &mdash; Understanding clinical workflows, standards, and responsible AI use</li>
+        <li><strong>Technical Leadership &amp; Mentorship</strong> &mdash; Growing high‑performing engineering and data teams</li>
+        <li><strong>Project &amp; Product Management</strong> &mdash; Delivering complex multi‑platform solutions on time and within budget</li>
+        <li><strong>Communication &amp; Stakeholder Alignment</strong> &mdash; Translating technical concepts for executives and partners</li>
+        <li><strong>Continuous Learning &amp; Adaptability</strong> &mdash; Staying ahead of evolving technologies and regulatory trends</li>
+      </ul>
     </section>
 
     <section class="section">
