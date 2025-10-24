@@ -5,6 +5,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Simon Corcos — CV</title>
+  <!-- Modern, print-friendly fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
 
   
   <!-- Tailwind (no-build) via CDN; preflight disabled to preserve existing styles -->
@@ -39,7 +43,7 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
         Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji",
         "Segoe UI Emoji";
       color: var(--text);
@@ -65,6 +69,7 @@
       margin: 0 0 4px;
       letter-spacing: 0.2px;
       font-weight: 700;
+      font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial;
     }
 
     .tagline {
@@ -165,18 +170,26 @@
     }
 
     .cv h2 {
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 700;
       margin: 0 0 8px;
       letter-spacing: 0.3px;
       color: var(--text);
+      font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial;
     }
 
     .cv h3 {
       font-size: 15px;
       font-weight: 600;
       margin: 10px 0 2px;
+      font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial;
     }
+
+    /* Emphasis vs headings: keep <strong>/<b> lighter than H2s */
+    .cv strong,
+    .cv b { font-weight: 600; }
+    .cv h1 strong, .cv h2 strong, .cv h3 strong,
+    .cv h1 b, .cv h2 b, .cv h3 b { font-weight: inherit; }
 
     .sub {
       color: var(--muted);
@@ -474,7 +487,7 @@
 
       <h3>Earlier Experience (Selected)</h3>
       <ul>
-        <li><strong>ERP Customization Specialist</strong> &mdash; Gurus Solutions (2015 &ndash; 2016) &nbsp;|&nbsp;
+        <li><strong>Netsuite Cloud ERP Specialist</strong> &mdash; Gurus Solutions (2015 &ndash; 2016) &nbsp;|&nbsp;
           SuiteScript/JavaScript, SQL</li>
         <li><strong>Web Developer</strong> &mdash; SOS Cuisine (2014) &nbsp;|&nbsp; PHP, MySQL, Front‑end UX</li>
       </ul>
@@ -503,11 +516,9 @@
       <ul>
         <li><strong>MMS Foundation</strong> &mdash; Field coordinator &amp; web contributor supporting surgical missions
           and digital logistics.</li>
-        <li>Rock climbing, surfing, chess.</li>
+        <li><strong>Passionate</strong> about rock climbing, surfing, and chess.</li>
       </ul>
     </section>
-
-    <p class="footer">Updated October 2025</p>
   </main>
 </body>
 
